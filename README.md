@@ -12,6 +12,24 @@ This project analyzes a consumer loan portfolio from **2007–2015**. Its object
 
 ---
 
+## Dashboard & Visual Reports
+
+### Page 1: Executive Portfolio Overview
+![Executive Portfolio Overview](assets/page_1_pb.png)
+
+
+---
+
+### Page 2: Risk Profile & Demographics
+![Risk Profile & Demographics](assets/page_2_pb.png)
+
+---
+
+### Page 3:  What-If / Provision Simulator 
+![What-If / Provision Simulator ](assets/page_3_pb.png)
+
+---
+
 ## Main Clues & Recommendations
 
 ### Main Clues
@@ -27,6 +45,25 @@ This project analyzes a consumer loan portfolio from **2007–2015**. Its object
 2. **Risk Appetite Adjustment on High-Risk Tiers:** Cease or heavily restrict uncollateralized origination in Grades F and G, or mandate co-signers/collateral guarantees.
 3. **Shift to Upfront Origination Fees:** Replace reliance on nominal high interest rates in high-risk categories with upfront Origination Fees collected at disbursement, locking in capital protection immediately.
 4. **Macro Scenario Capital Buffer:** Utilize the What-If Provision Simulator during annual ICAAP/CCAR stress testing to lock in extra capital reserves (Provision Delta) prior to projected economic downturns.
+
+---
+
+## Tech Stack & Tools
+
+* **Environment:** Jupyter Notebook, Visual Studio 
+* **Data Processing & ETL:** Python (`pandas`, `numpy`) – Data cleaning, type casting, missing value imputation, and automated preprocessing.
+* **Statistical Analysis:** Hypothesis testing for continuous risk drivers and statistical validation.
+* **Architecture & Workflow Visualization:** Mermaid.js / UML – Flowcharts and architecture diagrams.
+* **Data Visualization & Modeling:** Power BI – star schema, creating DAX metrics, dynamic What-If parameters, and interactive filtering.
+
+---
+
+## System Architecture & Workflow
+
+1. **ETL (Python):** Cleanses, standardizes, and transforms raw peer-to-peer lending data, handling missing values, right-skewed outliers, and numerical type conversions.
+2. **Feature Engineering & Target Encoding (Python):** Isolates completed loans to prevent target leakage, defines binary credit risk buckets (Performing vs. Defaulted), and engineers continuous chronological variables for downstream risk modeling.
+3. **Analytics & Transformation (DAX):** Leverages DAX formulas. Drives exploratory data analysis to validate business hypotheses and confirms the adverse selection effect in high-risk tiers.
+4. **Business Intelligence & Forecasting (Power BI):** Visualizes credit risk KPIs, demographic distributions, and deploys an interactive What-If stress-testing simulator to forecast capital reserve requirements under macroeconomic stress scenarios.
 
 ---
 
@@ -68,13 +105,6 @@ Higher interest rates on Grades E, F, and G **DO NOT** fully offset the underlyi
 
 ---
 
-## System Architecture & Workflow
-
-1. **ETL (Python):** Cleanses, standardizes, and transforms raw peer-to-peer lending data, handling missing values, right-skewed outliers, and numerical type conversions.
-2. **Feature Engineering & Target Encoding (Python):** Isolates completed loans to prevent target leakage, defines binary credit risk buckets (Performing vs. Defaulted), and engineers continuous chronological variables for downstream risk modeling.
-3. **Analytics & Transformation (DAX):** Leverages DAX formulas. Drives exploratory data analysis to validate business hypotheses and confirms the adverse selection effect in high-risk tiers.
-4. **Business Intelligence & Forecasting (Power BI):** Visualizes credit risk KPIs, demographic distributions, and deploys an interactive What-If stress-testing simulator to forecast capital reserve requirements under macroeconomic stress scenarios.
-
 ## Python
 
 ### 1. Feature Selection & Target Encoding
@@ -107,27 +137,3 @@ df_closed["term_months"] = df_closed["term"].str.extract(r"(\d+)").astype(float)
 df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().map(emp_map)
 ```
 
-## Dashboard & Visual Reports
-
-### Page 1: Executive Portfolio Overview
-![Executive Portfolio Overview](assets/page_1_pb.png)
-
-
----
-
-### Page 2: Risk Profile & Demographics
-![Risk Profile & Demographics](assets/page_2_pb.png)
-
----
-
-### Page 3:  What-If / Provision Simulator 
-![What-If / Provision Simulator ](assets/page_3_pb.png)
-
-
-## Tech Stack & Tools
-
-* **Environment:** Jupyter Notebook, Visual Studio 
-* **Data Processing & ETL:** Python (`pandas`, `numpy`) – Data cleaning, type casting, missing value imputation, and automated preprocessing.
-* **Statistical Analysis:** Hypothesis testing for continuous risk drivers and statistical validation.
-* **Architecture & Workflow Visualization:** Mermaid.js / UML – Flowcharts and architecture diagrams.
-* **Data Visualization & Modeling:** Power BI – star schema, creating DAX metrics, dynamic What-If parameters, and interactive filtering.
