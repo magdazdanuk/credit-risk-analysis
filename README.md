@@ -84,7 +84,7 @@ df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().
 ## Dashboard & Visual Reports
 
 ### Page 1: Executive Portfolio Overview
-![Executive Portfolio Overview](assets/page_1_bp.png)
+![Executive Portfolio Overview](assets/page_1_pb.png)
 
 
 ## Tech Stack & Tools
