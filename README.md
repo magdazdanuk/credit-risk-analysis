@@ -86,6 +86,16 @@ df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().
 ### Page 1: Executive Portfolio Overview
 ![Executive Portfolio Overview](assets/page_1_pb.png)
 
+---
+
+### Page 2: Risk Profile & Demographics
+![Risk Profile & Demographics](assets/page_2_pb.png)
+
+---
+
+### Page 3:  What-If / Provision Simulator 
+![What-If / Provision Simulator ](assets/page_3_pb.png)
+
 
 ## Tech Stack & Tools
 * Data Processing & ETL: Python (Pandas, NumPy) - Data cleaning, type casting, missing value imputation.
