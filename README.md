@@ -11,35 +11,22 @@ The main goal was to create an interactive BI tool and a stress-testing simulato
 
 ---
 
-## Main Clues 
+## Main Clues & Recommendations
 
-1. DTI as a Primary Risk Predictor:
-   * Statistical testing confirms a highly significant difference (p < 0.001) in Debt-to-Income ratios between performing and defaulted borrowers. Higher DTI directly correlates with default spikes.
+### Main Clues
+1. **DTI as a Primary Risk Predictor:** Statistical testing confirms a highly significant difference ($p < 0.001$) in Debt-to-Income ratios between performing and defaulted borrowers. Higher DTI directly correlates with default spikes.
+2. **The High-Risk Pricing Paradox (Adverse Selection):** 
+   * **Grades A–B:** Low interest rates (~7%–11%) paired with low default rates (~6%–13%) generate stable, low-provision cash flows.
+   * **Grades E–G:** Elevated interest rates (~18%–25%+) **do not compensate** for default rates exceeding 30%–40% combined with low recovery rates (~12%–15%).
+   * **Economic Reality:** A single default in Grade G wipes out the interest yield of ~4 fully paying loans in the same tier. High interest rates trigger adverse selection (attracting cash-strapped borrowers with limited refinancing options).
+3. **Income vs. DTI Illusion:** High annual income alone does not protect against default if the borrower carries an excessively high DTI ratio.
 
-2. The High-Risk Pricing Paradox (Adverse Selection):
-   * Grades A-B: Low interest rates (~7%-11%) paired with low default rates (~6%-13%) generate stable, low-provision cash flows.
-   * Grades E-G: Elevated interest rates (~18%-25%+) do not compensate for default rates exceeding 30%-40% combined with low recovery rates (~12%-15%).
-   * Economic Reality: A single default in Grade G wipes out the interest yield of ~4 fully paying loans in the same tier. High interest rates attract adverse selection (cash-strapped borrowers with limited refinancing options).
+### Recommendations
+1. **Underwriting Policy & DTI Hard Caps:** Enforce an automated hard cutoff at **DTI > 25%** for credit rating grades below C.
+2. **Risk Appetite Adjustment on High-Risk Tiers:** Cease or heavily restrict uncollateralized origination in Grades F and G, or mandate co-signers/collateral guarantees.
+3. **Shift to Upfront Origination Fees:** Replace reliance on nominal high interest rates in high-risk categories with upfront Origination Fees collected at disbursement, locking in capital protection immediately.
+4. **Macro Scenario Capital Buffer:** Utilize the What-If Provision Simulator during annual ICAAP/CCAR stress testing to lock in extra capital reserves (Provision Delta) prior to projected economic downturns.
 
-3. Income vs. DTI Illusion:
-   * High annual income alone does not protect against default if the borrower carries an excessively high DTI ratio.
-
----
-
-## Recommendations
-
-1. Underwriting Policy & DTI Hard Caps:
-   * Enforce an automated hard cutoff at DTI > 25% for credit rating grades below C.
-
-2. Risk Appetite Adjustment on High-Risk Tiers:
-   * Cease or heavily restrict uncollateralized origination in Grades F and G, or mandate co-signers/collateral guarantees.
-
-3. Shift to Upfront Origination Fees:
-   * Replace reliance on nominal high interest rates in high-risk categories with upfront Origination Fees collected at disbursement, locking in capital protection immediately.
-
-4. Macro Scenario Capital Buffer:
-   * Utilize the What-If Provision Simulator during annual ICAAP/CCAR stress testing to lock in extra capital reserves (Provision Delta) prior to projected economic downturns.
-  
 ---
 
 ## System Architecture & Workflow
