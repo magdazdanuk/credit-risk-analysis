@@ -42,17 +42,49 @@ The main goal was to create an interactive BI tool and a stress-testing simulato
   
 ---
 
-## Realization of Project
+## System Architecture & Workflow
 
-1. Requirement Gathering & Problem Definition: Defined key risk metrics and business goals for retail credit assessment.
-2. Data Pipeline & Python Preprocessing: Cleaned the raw dataset, imputed missing values, engineered emp_length_years, and created target classification variables.
-3. Statistical Hypothesis Testing: Conducted two-sample tests in Python to validate DTI and Income as statistically significant drivers of default risk.
-4. Data Modeling & DAX Metric Development: Imported processed data into Power BI, set up relationships, and authored core DAX measures (Total Portfolio Volume, Default Rate %, Avg Recovery Rate %).
-5. Dashboard UI/UX Construction: Built Page 1 (Executive KPIs) and Page 2 (Borrower Demographics), resolving sorting issues (emp_length) and applying Top-N filtering.
-6. What-If Parameter & Stress Model Engine: Generated numeric range parameters in Power BI (Default Stress %, Recovery Stress %) and wrote advanced DAX variables using FORMAT for dynamic million-dollar cards.
-7. Business Strategy & Documentation Translation: Translated statistical and financial outputs into executive recommendations and compiled complete documentation.
+1. **ETL (Python):** Cleanses, standardizes, and transforms raw peer-to-peer lending data, handling missing values, right-skewed outliers, and numerical type conversions.
+2. **Feature Engineering & Target Encoding (Python):** Isolates completed loans to prevent target leakage, defines binary credit risk buckets (Performing vs. Defaulted), and engineers continuous chronological variables for downstream risk modeling.
+3. **Analytics & Transformation (DAX):** Leverages DAX formulas. Drives exploratory data analysis to validate business hypotheses and confirms the adverse selection effect in high-risk tiers.
+4. **Business Intelligence & Forecasting (Power BI):** Visualizes credit risk KPIs, demographic distributions, and deploys an interactive What-If stress-testing simulator to forecast capital reserve requirements under macroeconomic stress scenarios.
 
----
+## Python
+
+### 1. Feature Selection & Target Encoding
+To accurately calculate default rates, the dataset was filtered to include only completed loan lifecycles. In-flight loans were excluded to prevent target leakage. A binary risk flag (`is_default`) was engineered to streamline DAX calculations in Power BI.
+
+```python
+# 1. Isolate completed loans to prevent target leakage
+df_closed = df_sub[
+    df_sub["loan_status"].isin(["Fully Paid", "Charged Off", "Default"])
+].copy()
+
+# 2. Engineer binary target variable (1 = Default, 0 = Performing)
+df_closed["is_default"] = (
+    df_closed["loan_status"].isin(["Charged Off", "Default"]).astype(int)
+)
+```
+### 2. Change data type
+Below are preview screenshots of the interactive Power BI dashboard.
+```python
+# Convert percentage strings to strict numeric formats
+for col in ["int_rate", "revol_util"]:
+    df_closed[col] = df_closed[col].astype(str).str.replace("%", "").str.strip()
+    df_closed[col] = pd.to_numeric(df_closed[col], errors="coerce")
+
+# Extract integer duration from text (e.g., "36 months" -> 36)
+df_closed["term_months"] = df_closed["term"].str.extract(r"(\d+)").astype(float)
+
+# Standardize employment length using a predefined dictionary map (emp_map)
+# Example: "< 1 year" -> 0, "10+ years" -> 10
+df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().map(emp_map)
+```
+
+## Dashboard & Visual Reports
+
+### Page 1: Executive Portfolio Overview
+
 
 ## Tech Stack & Tools
 * Data Processing & ETL: Python (Pandas, NumPy) - Data cleaning, type casting, missing value imputation, and feature engineering.
