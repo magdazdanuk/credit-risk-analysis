@@ -9,9 +9,9 @@ This project analyzes a consumer loan portfolio from 2007–2015. Its objective 
 
 The main goal was to create an interactive BI tool and a stress-testing simulator that enable senior management and the credit risk team to quickly derive business insights and estimate capital reserve requirements in the event of an economic downturn.
 
+---
 
-
-## Main Clues & Analytical Findings
+## Main Clues 
 
 1. DTI as a Primary Risk Predictor:
    * Statistical testing confirms a highly significant difference (p < 0.001) in Debt-to-Income ratios between performing and defaulted borrowers. Higher DTI directly correlates with default spikes.
