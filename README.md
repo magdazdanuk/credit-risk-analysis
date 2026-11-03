@@ -87,7 +87,6 @@ df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().
 
 
 ## Tech Stack & Tools
-* Data Processing & ETL: Python (Pandas, NumPy) - Data cleaning, type casting, missing value imputation, and feature engineering.
-* Data Visualization & BI: Power BI Desktop - Custom DAX metrics, dynamic What-If parameters, hierarchical sorting, and interactive filtering.
+* Data Processing & ETL: Python (Pandas, NumPy) - Data cleaning, type casting, missing value imputation.
+* Data Visualization: Power BI - Creating DAX metrics, dynamic What-If parameters, and interactive filtering.
 * Statistical Analysis: Hypothesis testing for continuous risk drivers.
-* Domain Knowledge: Retail Credit Risk, Loss Given Default, Expected Loss, Risk-Adjusted Return on Capital, and Impairment Provisioning.
