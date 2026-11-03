@@ -112,6 +112,7 @@ df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().
 ### Page 1: Executive Portfolio Overview
 ![Executive Portfolio Overview](assets/page_1_pb.png)
 
+
 ---
 
 ### Page 2: Risk Profile & Demographics
