@@ -101,6 +101,6 @@ df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().
 
 * **Environment:** Jupyter Notebook, Visual Studio 
 * **Data Processing & ETL:** Python (`pandas`, `numpy`) – Data cleaning, type casting, missing value imputation, and automated preprocessing.
-* **Statistical Analysis: Hypothesis testing for continuous risk drivers and statistical validation.
+* **Statistical Analysis:** Hypothesis testing for continuous risk drivers and statistical validation.
 * **Architecture & Workflow Visualization:** Mermaid.js / UML – Flowcharts and architecture diagrams.
 * **Data Visualization & Modeling:** Power BI – star schema, creating DAX metrics, dynamic What-If parameters, and interactive filtering.
