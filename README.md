@@ -9,7 +9,7 @@ This project analyzes a consumer loan portfolio from 2007–2015. Its objective 
 
 The main goal was to create an interactive BI tool and a stress-testing simulator that enable senior management and the credit risk team to quickly derive business insights and estimate capital reserve requirements in the event of an economic downturn.
 
----
+
 
 ## Main Clues & Analytical Findings
 
