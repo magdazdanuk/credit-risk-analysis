@@ -1,13 +1,14 @@
 # Retail Credit Risk Management & Provision What-If Simulator
 
 ## Executive Summary & Project Goal
-This project analyzes a consumer loan portfolio from 2007–2015. Its objective is to identify key trends and relationships regarding:
-* portfolio default rates 
-* borrower risk profiles 
-* collection effectiveness and capital recovery 
-* profitability across credit rating tiers 
 
-The main goal was to create an interactive BI tool and a stress-testing simulator that enable senior management and the credit risk team to quickly derive business insights and estimate capital reserve requirements in the event of an economic downturn.
+This project analyzes a consumer loan portfolio from **2007–2015**. Its objective is to identify key trends and relationships regarding:
+* **Portfolio default rates** and underlying credit risk drivers
+* **Borrower risk profiles** (income, debt-to-income, credit scoring)
+* **Collection effectiveness** and post-default capital recovery
+* **Profitability & margin sustainability** across credit rating tiers
+
+**Main Goal:** Build an interactive Business Intelligence solution and a **stress-testing simulator** that enable senior management and the credit risk team to quickly derive business insights and estimate capital reserve requirements (Provision Delta) under adverse economic scenarios.
 
 ---
 
