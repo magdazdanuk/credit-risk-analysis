@@ -105,7 +105,7 @@ Higher interest rates on Grades E, F, and G **DO NOT** fully offset the underlyi
 
 ---
 
-## Python
+## Python Data Pipeline
 
 ### 1. Feature Selection & Target Encoding
 To accurately calculate default rates, the dataset was filtered to include only completed loan lifecycles. In-flight loans were excluded to prevent target leakage. A binary risk flag (`is_default`) was engineered to streamline DAX calculations in Power BI.
