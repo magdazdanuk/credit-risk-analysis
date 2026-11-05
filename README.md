@@ -53,7 +53,7 @@ This project analyzes a consumer loan portfolio from **2007–2015**. Its object
 * **Environment:** Jupyter Notebook, Visual Studio 
 * **Data Processing & ETL:** Python (`pandas`, `numpy`) – Data cleaning, type casting, missing value imputation, and automated preprocessing.
 * **Statistical Analysis:** Hypothesis testing for continuous risk drivers and statistical validation.
-* **Architecture & Workflow Visualization:** Mermaid.js / UML – Flowcharts and architecture diagrams.
+* **Architecture & Workflow Visualization:** UML – Flowcharts and architecture diagrams.
 * **Data Visualization & Modeling:** Power BI – star schema, creating DAX metrics, dynamic What-If parameters, and interactive filtering.
 
 ---
