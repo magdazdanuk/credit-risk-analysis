@@ -118,3 +118,30 @@ Higher interest rates on Grades E, F, and G **DO NOT** fully offset the underlyi
 7. **Categorical Mapping & Chronological Ordering:** Mapped textual employment lengths (`emp_length`) to continuous numerical values (0 to 10 years) to enable logical chronological sorting in Power BI visuals.
 8. **Temporal Feature Extraction:** Converted raw date strings into standard `datetime` objects, extracting `issue_year` and `issue_month` to support dynamic time-series segmentations.
 9. **Processed Data Export:** Exported the cleaned, standardized working dataset (`loan_processed.csv`), optimized loading into Power BI.
+
+## How to Run
+
+### Install Dependencies
+
+Install the required Python packages for data processing:
+
+```bash
+pip install pandas numpy
+```
+
+### Data Download & Pipeline Execution
+
+* Place the raw LendingClub dataset (`loan.csv`) into your project root or working directory.
+* Run the data preparation script to perform cleaning, target encoding, and feature extraction:
+
+```bash
+python scripts/data_preparation.py
+```
+
+* The script will export the processed file `loan_processed.csv`.
+
+### Launch Power BI Report
+
+* Open the report file (`.pbix`) in Power BI Desktop.
+* If prompted, update the data source path to point to your local `loan_processed.csv` (**Home** > **Transform Data** > **Data Source Settings**).
+* Click **Refresh** to load the data and interact with the scenario models and What-If simulator.
