@@ -65,6 +65,8 @@ This project analyzes a consumer loan portfolio from **2007–2015**. Its object
 3. **Analytics & Transformation (DAX):** Leverages DAX formulas. Drives exploratory data analysis to validate business hypotheses and confirms the adverse selection effect in high-risk tiers.
 4. **Business Intelligence & Forecasting (Power BI):** Visualizes credit risk KPIs, demographic distributions, and deploys an interactive What-If stress-testing simulator to forecast capital reserve requirements under macroeconomic stress scenarios.
 
+![flowchart](assets/flowchart.png)
+
 ---
 
 ## Statistical Significance & Risk Analysis
