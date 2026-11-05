@@ -12,6 +12,13 @@ This project analyzes a consumer loan portfolio from **2007–2015**. Its object
 
 ---
 
+## Dataset & Data Source
+
+- **Source:** [LendingClub Loan Data (2007–2015) on Kaggle](https://www.kaggle.com/datasets/adarshsng/lending-club-loan-data-csv)
+- **Scope:** ~890,000 historical loan records across 75 variables
+
+---
+
 ## Dashboard & Visual Reports
 
 ### Page 1: Executive Portfolio Overview
