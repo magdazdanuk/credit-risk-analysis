@@ -109,33 +109,12 @@ Higher interest rates on Grades E, F, and G **DO NOT** fully offset the underlyi
 
 ## Python Data Pipeline
 
-### 1. Feature Selection & Target Encoding
-To accurately calculate default rates, the dataset was filtered to include only completed loan lifecycles. In-flight loans were excluded to prevent target leakage. A binary risk flag (`is_default`) was engineered to streamline DAX calculations in Power BI.
-
-```python
-# 1. Isolate completed loans to prevent target leakage
-df_closed = df_sub[
-    df_sub["loan_status"].isin(["Fully Paid", "Charged Off", "Default"])
-].copy()
-
-# 2. Engineer binary target variable (1 = Default, 0 = Performing)
-df_closed["is_default"] = (
-    df_closed["loan_status"].isin(["Charged Off", "Default"]).astype(int)
-)
-```
-### 2. Change data type
-Below are preview screenshots of the interactive Power BI dashboard.
-```python
-# Convert percentage strings to strict numeric formats
-for col in ["int_rate", "revol_util"]:
-    df_closed[col] = df_closed[col].astype(str).str.replace("%", "").str.strip()
-    df_closed[col] = pd.to_numeric(df_closed[col], errors="coerce")
-
-# Extract integer duration from text (e.g., "36 months" -> 36)
-df_closed["term_months"] = df_closed["term"].str.extract(r"(\d+)").astype(float)
-
-# Standardize employment length using a predefined dictionary map (emp_map)
-# Example: "< 1 year" -> 0, "10+ years" -> 10
-df_closed["emp_length_years"] = df_closed["emp_length"].astype(str).str.strip().map(emp_map)
-```
-
+1. **Loaded and Ingested Raw Data:** Imported the raw loan dataset into Python using `pandas` to begin the ETL pipeline.
+2. **Dimensionality Reduction & Column Selection:** Filtered down raw features to an optimal subset of key metrics relevant to credit risk analytics.
+3. **Target Leakage Prevention:** Isolated completed loan lifecycles (`Fully Paid`, `Charged Off`, `Default`) and excluded in-flight loans (`Current`, `In Grace Period`) to ensure accurate default rate metrics.
+4. **Target Variable Encoding:** Engineered a binary risk classification flag (`is_default`), mapping default statuses to `1` and fully paid loans to `0` for seamless downstream quantitative calculations.
+5. **Data Cleaning & Type Standardization:** Parsed string-formatted percentage columns (`int_rate`, `revol_util`) and stripped non-numeric characters to convert them into clean floating-point numbers.
+6. **Numeric Duration Extraction:** Applied regular expressions to extract clean integer representations of loan terms in months (e.g., converting "36 months" to `36`).
+7. **Categorical Mapping & Chronological Ordering:** Mapped textual employment lengths (`emp_length`) to continuous numerical values (0 to 10 years) to enable logical chronological sorting in Power BI visuals.
+8. **Temporal Feature Extraction:** Converted raw date strings into standard `datetime` objects, extracting `issue_year` and `issue_month` to support dynamic time-series segmentations.
+9. **Processed Data Export:** Exported the cleaned, standardized working dataset (`loan_processed.csv`), optimized loading into Power BI.
